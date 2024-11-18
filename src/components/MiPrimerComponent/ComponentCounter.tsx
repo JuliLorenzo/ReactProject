@@ -6,6 +6,7 @@ export const ComponentCounter = () => {
     const incrementarCounter = ()=>{
         setCounter((prev) => prev+1)        
     }
+    
     const decrementarCounter = ()=>{
         if(counter >0){
             setCounter((prev) => prev - 1);            

@@ -1,3 +1,4 @@
+import { AppProduct } from "./components/AppProduct/AppProduct";
 import { ComponentUseEffect } from "./components/ComponentUseEffect/ComponentUseEffect";
 import { FormComponent } from "./components/FormComponent/FormComponent";
 import { ComponentCounter } from "./components/MiPrimerComponent/ComponentCounter";
@@ -14,7 +15,8 @@ export const App = () =>{
             />
             <ComponentCounter />
             <ComponentUseEffect /> */}
-            <FormComponent />
+            {/* <FormComponent />  */}
+            <AppProduct />
         </div>    
     );
 };

@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export const FormComponent = () => {
-    const [email,setEmail]= useState('')
-    const [nombre,setNombre]= useState('')
-    const [edad,setEdad]= useState(0)
+    const {values, handleChange, resetForm} = useForm({
+        email:'',
+        nombre:'',
+        edad:0,
+    });
+    
+    const { email, nombre, edad } = values;
 
-    const handleSubmitForm = () => {
-
+    const handleSubmitForm = () =>{
+        console.log(values);
+    };
+    const handleResetForm = () => {
+        resetForm();
     };
 
     return (
@@ -15,21 +22,37 @@ export const FormComponent = () => {
              <h2>Formulario</h2>
             </div>
         <div style={{display: 'flex', flexDirection: "column", gap:"2vh"}}>
-            <input value={email} onChange={(e) => {
-                setEmail(e.target.value);                
-            }} type="email" placeholder="example@example.com"/>
-          
-            <input value={nombre} onChange={(e) => {
-                setNombre(e.target.value);                
-            }} type="text" placeholder="Nombre" />
+            <input 
+            value={email} 
+            name="email"
+            onChange={handleChange} 
+            type="email" 
+            placeholder="example@example.com"
+            />
+            <input 
+            value={nombre} 
+            name="nombre"
+            onChange={handleChange} 
+            type="text" 
+            placeholder="Nombre" 
+            />
 
-            <input value={edad} onChange={(e) => {
-                setEdad(parseInt(e.target.value))  ;              
-            }} type="number" placeholder="Edad"/>
+            <input
+             value={edad} 
+             name="edad"
+             onChange={handleChange} 
+             type="number" 
+             placeholder="Edad"
+             />
             </div>
             <div> 
                 <button onClick={handleSubmitForm}>Enviar</button>
+                <button onClick={handleResetForm}>Resetear</button>
             </div>
         </div>
     );
+}
+
+function useForm(arg0: { email: string; nombre: string; edad: number; }): { values: any; handleChange: any; resetForm: any; } {
+    throw new Error("Function not implemented.");
 }
